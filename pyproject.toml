@@ -1,0 +1,25 @@
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+extend-exclude = ["research/cache"]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I", "B", "C90"]
+
+[tool.ruff.lint.mccabe]
+max-complexity = 15
+
+[tool.mypy]
+python_version = "3.12"
+files = ["grade.py", "linker", "research"]
+check_untyped_defs = false
+warn_unused_ignores = true
+warn_redundant_casts = true
+no_implicit_optional = true
+show_error_codes = true
+
+[[tool.mypy.overrides]]
+# These scientific libraries do not ship complete type information. Our own
+# modules are still checked, including the bodies of unannotated functions.
+module = ["pandas.*", "scipy.*", "sklearn.*", "catboost.*", "joblib.*", "matplotlib.*"]
+ignore_missing_imports = true

@@ -1,0 +1,8 @@
+# Markdown uses trailing spaces for intentional hard line breaks.
+*.md whitespace=-blank-at-eol
+*.csv whitespace=-blank-at-eol
+*.svg whitespace=-blank-at-eol
+
+# Keep generated files out of the default GitHub code review.
+submission.csv linguist-generated=true
+docs/figures_data.json linguist-generated=true
